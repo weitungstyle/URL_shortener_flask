@@ -1,0 +1,38 @@
+{% extends "base.html" %} {% block content %} {% if shortenUrl %}
+<div class="alert alert-info" role="alert">
+    <h3 class="alert-heading">Success! Please use this link:</h3>
+    <a
+        href="https://intense-ravine-10299.herokuapp.com/{{shortenUrl}}"
+        class="alert-link"
+        id="shortenUrl"
+        >https://intense-ravine-10299.herokuapp.com/{{shortenUrl}}</a
+    >
+</div>
+<div class="text-center my-1">
+    <button class="btn btn-outline-success" onclick="copyUrl()">Copy</button>
+</div>
+
+{% else %}
+<form action="/" method="POST" style="display: inline">
+    <div class="text-center my-3">
+        <!---use requried to prevent an empty input--->
+        <input
+            type="text"
+            style="
+                width: 100%;
+                background-color: rgb(193, 193, 193);
+                border: none;
+                padding: 10px;
+                border-radius: 10px;
+            "
+            placeholder="Paste your link here."
+            name="url"
+            required
+        />
+        <!---end here--->
+    </div>
+    <div class="text-center my-1">
+        <button class="btn btn-outline-primary" type="submit">Generate</button>
+    </div>
+</form>
+{% endif %} {% endblock %}
