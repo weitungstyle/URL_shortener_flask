@@ -1,11 +1,11 @@
-{% extends "base.html" %} {% block content %} {% if shortenUrl %}
+{% extends "base.html" %} {% block content %} {% if short_url %}
 <div class="alert alert-info" role="alert">
     <h3 class="alert-heading">Success! Please use this link:</h3>
     <a
-        href="https://intense-ravine-10299.herokuapp.com/{{shortenUrl}}"
+        href="http://localhost:5000/{{short_url}}"
         class="alert-link"
         id="shortenUrl"
-        >https://intense-ravine-10299.herokuapp.com/{{shortenUrl}}</a
+        >https://localhost:5000/{{short_url}}</a
     >
 </div>
 <div class="text-center my-1">
