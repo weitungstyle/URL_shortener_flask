@@ -1,9 +1,9 @@
-from main.database import Database
-from main.models import URL_model
+from main.Database import Database
+from main.UrlModels import URL_model
 from flask import current_app
 
 
-class URL_handler:
+class UrlHandler:
     def __init__(self):
         self.db = Database(current_app)
         self.collection_name = 'urls'
@@ -19,6 +19,7 @@ class URL_handler:
             duplicated = self.db.duplicated(self.collection_name, new_url.short_url)
             while duplicated:
                 new_url.short_url = new_url.generate()
+                duplicated = self.db.duplicated(self.collection_name, new_url.short_url)
             data = {
                 "original_url": new_url.original_url,
                 "short_url": new_url.short_url,

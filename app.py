@@ -1,7 +1,8 @@
 from flask import Flask, render_template
 from dotenv import load_dotenv
-from main.routes import route
-from flask_pymongo import PyMongo
+from main.Routes import route
+
+# from flask_pymongo import PyMongo
 import os
 
 # setting static file path

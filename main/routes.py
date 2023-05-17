@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect
-from main.handler import URL_handler
+from main.UrlHandler import UrlHandler
 
 route = Blueprint('route', __name__)
 
@@ -11,7 +11,7 @@ def hello_world():
 
 @route.post('/')
 def post_url():
-    handler = URL_handler()
+    handler = UrlHandler()
     original_url = request.form['url']
     short_url = handler.post(original_url)
     print('activate')
@@ -20,7 +20,7 @@ def post_url():
 
 @route.get('/<path:url_id>')
 def redirect_to(url_id):
-    handler = URL_handler()
+    handler = UrlHandler()
     original_url = handler.get(url_id)
     print(original_url)
     if original_url:
